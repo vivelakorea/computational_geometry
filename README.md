@@ -1,0 +1,1 @@
+Implementations of Mark de Berg at al., "Comutational Geometry"
