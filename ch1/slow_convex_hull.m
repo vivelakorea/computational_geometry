@@ -15,7 +15,7 @@ for i = 1:size(P, 1)
         for k = 1:size(P, 1)
             if k == i || k == j ; continue; end
             r = P(k,:);
-            if det([1 p;1 q;1 r]) > 0
+            if det([1 p;1 q;1 r]) > 0 || helper.lies_between(r, [p; q], 1E-10)
                 valid = false;
             end
         end
