@@ -221,6 +221,7 @@ class RedBlackTree():
         return self.search_tree_helper(self.root, k)
 
     def minimum(self, node):
+        print(node.left)
         while node.left != self.TNULL:
             node = node.left
         return node
@@ -327,6 +328,41 @@ class RedBlackTree():
     def print_tree(self):
         self.__print_helper(self.root, "", True)
 
+
+class EventPointItem():
+# Item of node should represent a coordinate. It should meet these conditions
+# For two points p and q and corresponding item n and m (p ~ n, q ~ n),
+#        i) p_y > q_y => n < m
+#       ii) p_y == q_y and p_x < q_x => n < m
+    def __init__(self, point):
+        self.x, self.y = point
+    
+    def __eq__(self, other_point):
+        return self.x == other_point.x and self.y == other_point.y
+
+    def __le__(self, other_point):
+        if self.y > other_point.y:
+            return True
+        elif self.y < other_point.y:
+            return False
+        elif self.x < other_point.x:
+            return True
+        else:
+            return False
+
+    def __lt__(self, other_point):
+        if self.y > other_point.y:
+            return True
+        elif self.y < other_point.y:
+            return False
+        elif self.x < other_point.x:
+            return True
+        else:
+            return False
+    
+    def __repr__(self):
+        return str(self.x) + ',' + str(self.y)
+            
 
 if __name__ == "__main__":
     bst = RedBlackTree()
