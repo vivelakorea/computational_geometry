@@ -221,7 +221,6 @@ class RedBlackTree():
         return self.search_tree_helper(self.root, k)
 
     def minimum(self, node):
-        print(node.left)
         while node.left != self.TNULL:
             node = node.left
         return node
@@ -361,7 +360,7 @@ class EventPointItem():
             return False
     
     def __repr__(self):
-        return str(self.x) + ',' + str(self.y)
+        return '[' + str(self.x) + ',' + str(self.y) + ']'
             
 
 if __name__ == "__main__":
